@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-8 offset-md-2">
+    <h1>Blog Index</h1>
+    {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <small>
+        <p>created on-{{ post.created_on.date }}</p>
+    </small>
+    <p>{{ post.body | slice:":100" }}</p>
+    <a href="{% url 'blog_detail' post.pk%}">read more..</a>
+     
+    {% endfor %}
+</div>
+{% endblock %}
